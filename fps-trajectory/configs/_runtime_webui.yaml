@@ -1,0 +1,133 @@
+video_path: /Users/su/Desktop/code/job-homework/fps-trajectory/uploads/video2.mov
+model_path: artifacts/yolov11-ASF-P2/weights/best.pt
+output_dir: outputs/video2
+roi:
+  x: 0
+  y: 0
+  width: 0
+  height: 0
+detector:
+  conf: 0.12
+  device: auto
+  imgsz: 1280
+  batch_size: 1
+  verbose: false
+colors:
+  white:
+    h_min: 0
+    h_max: 180
+    s_min: 0
+    s_max: 60
+    v_min: 160
+    v_max: 255
+  red:
+  - h_min: 0
+    h_max: 10
+    s_min: 100
+    s_max: 255
+    v_min: 50
+    v_max: 255
+  - h_min: 160
+    h_max: 180
+    s_min: 100
+    s_max: 255
+    v_min: 50
+    v_max: 255
+  green:
+    h_min: 38
+    h_max: 80
+    s_min: 120
+    s_max: 255
+    v_min: 55
+    v_max: 255
+  purple:
+    h_min: 125
+    h_max: 155
+    s_min: 50
+    s_max: 255
+    v_min: 50
+    v_max: 255
+tracker:
+  max_distance: 35
+  max_lost: 15
+  max_speed: 120
+  keep_history_len: 1000
+  min_hits: 1
+  birth_frames: 3
+  birth_border_margin: 60.0
+  high_conf_threshold: 0.0
+  low_conf_threshold: 0.0
+  process_noise: 0.01
+  measurement_noise: 0.1
+  motion_weight: 0.0
+  position_weight: 1.0
+  trajectory_length: 1500
+  prediction_append_limit: 6
+  use_kalman: true
+  use_motion_prediction: false
+  enable_reid: false
+  occlusion_freeze_updates: false
+color_classifier:
+  roi_radius: 5
+  unknown_threshold: 0.4
+  margin_threshold: 0.1
+  white_brightness_threshold: 170
+  white_boost: 0.1
+  adaptive_alpha: 0.0
+  hist_bins_l: 8
+  hist_bins_ab: 8
+  reference_colors:
+    white:
+    - 245
+    - 245
+    - 245
+    green:
+    - 40
+    - 180
+    - 40
+    purple:
+    - 190
+    - 70
+    - 190
+    blue:
+    - 220
+    - 140
+    - 40
+    red:
+    - 60
+    - 60
+    - 220
+    yellow:
+    - 40
+    - 220
+    - 220
+team_estimator:
+  voting_window: 60
+  color_lock_frames: 10
+  color_change_threshold: 0.95
+  ema_decay: 0.97
+  ema_update: 0.03
+  unlock_required_frames: 30
+occlusion_manager:
+  max_missing_frames: 12
+  temp_occluded_protect: 0
+  iou_threshold: 1.0
+  reid_position_weight: 0.0
+  reid_velocity_weight: 0.0
+  reid_direction_weight: 0.0
+  reid_appearance_weight: 0.0
+minimap: {}
+walkable:
+  mask_path: configs/walkable_mask.png
+track_selector:
+  target_track_ids: []
+  target_team_colors: []
+visualizer:
+  draw_traj: true
+  draw_ids: true
+  line_thickness: 2
+  smoothing_beta: 0.85
+  max_jump_draw: 40.0
+logging:
+  level: INFO
+  file: logs/runtime.log

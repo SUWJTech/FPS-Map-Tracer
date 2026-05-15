@@ -1,0 +1,10 @@
+numpy
+opencv-python
+PyYAML
+matplotlib
+scipy
+tqdm
+pandas
+ultralytics
+torch
+ruamel.yaml
